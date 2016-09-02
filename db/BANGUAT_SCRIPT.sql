@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema banguat
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema banguat
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `banguat` DEFAULT CHARACTER SET utf8 ;
+USE `banguat` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`EMISORES`
+-- Table `banguat`.`EMISORES`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`EMISORES` (
+CREATE TABLE IF NOT EXISTS `banguat`.`EMISORES` (
   `ID_EMISOR` INT NOT NULL,
   `NOMBRES_EMISOR` VARCHAR(30) NULL,
   `APELLIDOS_EMISOR` VARCHAR(30) NULL,
@@ -28,9 +28,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`BANCO_RECEPTOR`
+-- Table `banguat`.`BANCO_RECEPTOR`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`BANCO_RECEPTOR` (
+CREATE TABLE IF NOT EXISTS `banguat`.`BANCO_RECEPTOR` (
   `ID_BANCO_RECEPTOR` INT NOT NULL,
   `NOMBRE_BANCO_RECEPTOR` VARCHAR(30) NULL,
   `TELEFONO` VARCHAR(8) NULL,
@@ -41,9 +41,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`REMESAS`
+-- Table `banguat`.`REMESAS`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`REMESAS` (
+CREATE TABLE IF NOT EXISTS `banguat`.`REMESAS` (
   `ID_REMESA` INT NOT NULL,
   `NOMBRE_RECPTOR` VARCHAR(30) NULL,
   `APELLIDOS_RECEPTOR` VARCHAR(30) NULL,
@@ -63,12 +63,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`REMESAS` (
   INDEX `fk_REMESAS_BANCO_RECEPTOR1_idx` (`BANCO_RECEPTOR_ID_BANCO_RECEPTOR` ASC),
   CONSTRAINT `fk_REMESAS_EMISORES`
     FOREIGN KEY (`EMISORES_ID_EMISOR`)
-    REFERENCES `mydb`.`EMISORES` (`ID_EMISOR`)
+    REFERENCES `banguat`.`EMISORES` (`ID_EMISOR`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_REMESAS_BANCO_RECEPTOR1`
     FOREIGN KEY (`BANCO_RECEPTOR_ID_BANCO_RECEPTOR`)
-    REFERENCES `mydb`.`BANCO_RECEPTOR` (`ID_BANCO_RECEPTOR`)
+    REFERENCES `banguat`.`BANCO_RECEPTOR` (`ID_BANCO_RECEPTOR`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
